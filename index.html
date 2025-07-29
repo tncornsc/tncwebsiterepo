@@ -1,11 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Welcome</title>
+  <title>ballsack.space</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="../scripts/loadglitch.js"></script>
 </head>
 <body>
-    <h1>Many things can be made using my own 2 hands...</h1>
-     <img src="../images/sid.webp" alt="sloth">
-    <p>Hey get out of here!!</p>
+
+  <div class="title" id="title-text"></div>
+
+  <img class="random-img" id="img1" src="images/img1.gif">
+  <img class="random-img" id="img2" src="images/img2.gif">
+  <img class="random-img" id="img3" src="images/img3.gif">
+
+  <div id="about-me"></div>
+
+  <script>
+    // Title letters shaking
+    const title = "BALLSACK.SPACE";
+    const titleDiv = document.getElementById("title-text");
+    for (let char of title) {
+      const span = document.createElement("span");
+      span.textContent = char;
+      span.style.animationDelay = `${Math.random()}s`;
+      titleDiv.appendChild(span);
+    }
+
+    // Random image positioning
+    function randomPos(img) {
+      img.style.left = Math.random() * (window.innerWidth - 100) + "px";
+      img.style.top = Math.random() * (window.innerHeight - 100) + "px";
+    }
+    ["img1", "img2", "img3"].forEach(id => randomPos(document.getElementById(id)));
+
+    // About Me nonsense generator
+    const about = document.getElementById("about-me");
+    const sourceWords = `Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. `.repeat(5).split(" ");
+
+    function jumbleWords() {
+      const chosen = [];
+      for (let i = 0; i < 15; i++) {
+        const rand = Math.floor(Math.random() * sourceWords.length);
+        chosen.push(sourceWords[rand]);
+      }
+      about.textContent = chosen.join(" ");
+    }
+    jumbleWords();
+    setInterval(jumbleWords, 2000);
+  </script>
+
 </body>
 </html>
