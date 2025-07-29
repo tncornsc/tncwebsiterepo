@@ -40,15 +40,22 @@
 fetch('/assets/aboutus.txt')
   .then(response => response.text())
   .then(text => {
-    sourceWords = text.split(/\s+/); // split by any whitespace
+    // Match <save>...</save> phrases
+    const savedPhrases = [...text.matchAll(/<save>(.*?)<\\/save>/gs)].map(match => match[1]);
+    
+    // Remove <save>...</save> blocks from original text
+    const cleanedText = text.replace(/<save>.*?<\\/save>/gs, '');
+    
+    // Combine saved phrases and normal words
+    const normalWords = cleanedText.split(/\s+/).filter(Boolean);
+    sourceWords = [...normalWords, ...savedPhrases];
+    
     jumbleWords(); // call once loaded
-    setInterval(jumbleWords, 2000); // repeat jumbles
+    setInterval(jumbleWords, 2000);
   })
   .catch(err => {
     console.error("Failed to load aboutus.txt:", err);
   });
-
-
     function jumbleWords() {
       const chosen = [];
       for (let i = 0; i < 15; i++) {
