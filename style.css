@@ -1,0 +1,46 @@
+body {
+  background-color: black;
+  color: lime;
+  font-family: "Comic Sans MS", cursive;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 4rem;
+  margin-top: 20px;
+}
+
+.title span {
+  display: inline-block;
+  animation: shake 0.5s infinite;
+}
+
+/* Make that shake aggressively random */
+@keyframes shake {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-5px, 3px); }
+  50% { transform: translate(4px, -2px); }
+  75% { transform: translate(-3px, -4px); }
+  100% { transform: translate(0, 0); }
+}
+
+.random-img {
+  position: absolute;
+  width: 100px;
+  height: auto;
+  image-rendering: pixelated;
+  pointer-events: none;
+}
+
+#about-me {
+  margin-top: 600px;
+  font-size: 1.5rem;
+  padding: 20px;
+  color: magenta;
+  text-shadow: 1px 1px 0px #000, 2px 2px 0px #ff0;
+}
