@@ -1,0 +1,46 @@
+/* style.css */
+
+body {
+  background-color: #00ffd0;
+  color: #ff0055;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  text-align: center;
+  animation: spin 60s infinite linear;
+}
+
+@keyframes spin {
+  from { filter: hue-rotate(0deg); }
+  to { filter: hue-rotate(360deg); }
+}
+
+marquee {
+  font-size: 2em;
+  color: yellow;
+  background: repeating-linear-gradient(45deg, red, red 10px, black 10px, black 20px);
+  border: 3px dashed lime;
+}
+
+img {
+  width: 200px;
+  border: 5px double cyan;
+  box-shadow: 0 0 25px magenta;
+}
+
+.deal-btn {
+  display: inline-block;
+  padding: 1em 2em;
+  margin-top: 20px;
+  background: hotpink;
+  color: white;
+  font-weight: bold;
+  border: 4px groove yellow;
+  text-decoration: none;
+  transform: rotate(-2deg);
+  box-shadow: 0 0 10px red;
+  animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+  from { transform: scale(1) rotate(-2deg); }
+  to { transform: scale(1.1) rotate(2deg); }
+}
