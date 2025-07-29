@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ballsack.space</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/assets/scripts/playermodule.js"></script>
+  <style>
+    body {
+      background-color: #121212;
+      color: #e0e0e0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5em;
+    }
+    p {
+      font-size: 1.2rem;
+      max-width: 600px;
+    }
+    #gold-display {
+      margin-top: 3em;
+      font-size: 1rem;
+      color: #ffd700;
+      cursor: pointer;
+      border-top: 1px solid #444;
+      padding-top: 1em;
+      transition: color 0.2s;
+    }
+    #gold-display:hover {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Welcome to ballsack.space</h1>
+  <p>This website serves as a simple, static archive of nothing important.</p>
+
+  <div id="gold-display">Loading...</div>
+
+  <script>
+    const goldDisplay = document.getElementById("gold-display");
+
+    function updateGoldDisplay() {
+      const gold = PlayerModule.getCurrency("gold");
+      goldDisplay.textContent = `Gold: ${gold}`;
+    }
+
+    goldDisplay.addEventListener("click", () => {
+      window.location.href = "/layer0/";
+    });
+
+    updateGoldDisplay();
+  </script>
+
+</body>
+</html>
