@@ -44,3 +44,16 @@ img {
   from { transform: scale(1) rotate(-2deg); }
   to { transform: scale(1.1) rotate(2deg); }
 }
+.kromer-img {
+  width: 300px;
+  animation: kromerpulse 1s infinite alternate;
+  border: 6px dashed magenta;
+  filter: drop-shadow(0 0 15px lime);
+  margin-top: 20px;
+}
+
+@keyframes kromerpulse {
+  from { transform: scale(1) rotate(-1deg); }
+  to { transform: scale(1.05) rotate(1deg); }
+}
+
