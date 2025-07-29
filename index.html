@@ -35,7 +35,19 @@
 
     // About Me nonsense generator
     const about = document.getElementById("about-me");
-    const sourceWords = `Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. `.repeat(5).split(" ");
+    let sourceWords = [];
+
+fetch('/assets/aboutus.txt')
+  .then(response => response.text())
+  .then(text => {
+    sourceWords = text.split(/\s+/); // split by any whitespace
+    jumbleWords(); // call once loaded
+    setInterval(jumbleWords, 2000); // repeat jumbles
+  })
+  .catch(err => {
+    console.error("Failed to load aboutus.txt:", err);
+  });
+
 
     function jumbleWords() {
       const chosen = [];
