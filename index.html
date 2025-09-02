@@ -3,7 +3,7 @@
 <head>
   <!-- Meta tags for Discord preview -->
   <meta property="og:title" content="ballsack.space">
-  <meta property="og:description" content="hey glare this is locke's website the name is normal">
+  <meta property="og:description" content="get out get out get out get out get out get out">
   <meta property="og:url" content="https://ballsack.space/">
   <meta property="og:image" content="https://ballsack.space/assets/images/preview.png">
   <meta charset="UTF-8">
@@ -49,25 +49,38 @@
 </head>
 <body>
 
-  <h1>Welcome to ballsack.space</h1>
-  <p>This website serves as a simple, static archive of nothing important.</p>
+  <h1>Welcome back.</h1>
+  <p>We hope you rememvered your password....</p>
 
-  <div id="gold-display">Loading...</div>
+<!-- Fake password form -->
+<div id="login-container">
+  <input type="password" id="fake-password" placeholder="Enter password">
+  <button id="login-btn">Login</button>
+</div>
 
-  <script>
-    const goldDisplay = document.getElementById("gold-display");
+<!-- Hidden gold display -->
+<div id="gold-display" style="display:none;">Loading...</div>
 
-    function updateGoldDisplay() {
-      const gold = PlayerModule.getCurrency("gold");
-      goldDisplay.textContent = `Gold: ${gold}`;
-    }
+<script>
+  const goldDisplay = document.getElementById("gold-display");
+  const loginBtn = document.getElementById("login-btn");
 
-    goldDisplay.addEventListener("click", () => {
-      window.location.href = "/layer0/";
-    });
+  function updateGoldDisplay() {
+    const gold = PlayerModule.getCurrency("gold");
+    goldDisplay.textContent = `Gold: ${gold}`;
+  }
 
+  // Unlock gold display on "login"
+  loginBtn.addEventListener("click", () => {
+    document.getElementById("login-container").style.display = "none";
+    goldDisplay.style.display = "block";
     updateGoldDisplay();
-  </script>
+  });
+
+  goldDisplay.addEventListener("click", () => {
+    window.location.href = "/layer0/";
+  });
+</script>
 
 </body>
 </html>
